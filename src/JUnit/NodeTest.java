@@ -1,8 +1,10 @@
-package org.jointheleague.linkedlist;
+package JUnit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import LinkedList.Node;
 
 public class NodeTest {
 

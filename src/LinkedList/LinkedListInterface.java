@@ -1,4 +1,4 @@
-package org.jointheleague.linkedlist;
+package LinkedList;
 
 import java.util.Collection;
 

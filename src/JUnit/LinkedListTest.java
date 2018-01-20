@@ -1,8 +1,12 @@
-package org.jointheleague.linkedlist;
+package JUnit;
 
 import static org.junit.Assert.*;
 
+import java.util.LinkedList;
+
 import org.junit.Test;
+
+import LinkedList.LinkedListInterface;
 
 public class LinkedListTest {
 
