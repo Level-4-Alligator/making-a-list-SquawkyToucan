@@ -52,6 +52,11 @@ public class LinkedListTest {
 		assertEquals("You are awesome!!", singly.toString()); 
 	}
 	
+	@Test
+	public void testContains() {
+		LinkedListInterface e = new LinkedList();
+		
+	}
 	// Add more tests ...
 
 }
