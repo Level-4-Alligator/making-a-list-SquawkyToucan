@@ -10,7 +10,7 @@ import java.util.Iterator;
 /**
  * Class Node
  */
-class Node implements LinkedListInterface {
+class Node {
 	protected Object data;
 	protected Node next;
 
@@ -66,109 +66,5 @@ class Node implements LinkedListInterface {
 	 */
 	public Object getData() {
 		return data;
-	}
-
-	@Override
-	public boolean contains(Object o) {
-		if(getData() == o) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public Iterator<String> iterator() {
-		//
-		return null;
-	}
-
-	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean add(String e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addAll(Collection<? extends String> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void addFirst(String data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addLast(String data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void add(String data, int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String remove(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

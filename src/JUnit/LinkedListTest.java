@@ -2,10 +2,9 @@ package JUnit;
 
 import static org.junit.Assert.*;
 
-import java.util.LinkedList;
-
 import org.junit.Test;
 
+import LinkedList.LinkedList;
 import LinkedList.LinkedListInterface;
 
 public class LinkedListTest {
@@ -22,7 +21,7 @@ public class LinkedListTest {
 		LinkedListInterface singly = new LinkedList();
 		singly.addLast("ABC");
 		assertFalse(singly.isEmpty()); // linked list should not be empty
-		assertEquals(1, singly.length()); // length of linked list should be 1
+		assertEquals(1, singly.size()); // length of linked list should be 1
 	}
 
 	@Test
@@ -32,7 +31,7 @@ public class LinkedListTest {
 		singly.addLast("are");
 		singly.addLast("awesome!!");
 		assertFalse(singly.isEmpty()); // linked list should not be empty
-		assertEquals(3, singly.length()); // length of linked list should be 3
+		assertEquals(3, singly.size()); // length of linked list should be 3
 	}
 	
 	@Test
