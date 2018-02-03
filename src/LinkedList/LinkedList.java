@@ -6,136 +6,190 @@ import java.util.Iterator;
 public class LinkedList implements LinkedListInterface {
 	Node start;
 	Node next;
+
+	// Iterator: INCOMPLETE
 	@Override
-	//Contains: WORKS
-	public boolean contains(Object o) {
-		while(start.getData() != o && start.getData() != null) {
-			data = next;
-		}
-		if(data == null) {
-			//Test failed
-			return false;
-		}
-		else {
-			//Test succeeded
-			return true;
-		}
-	}
-	//Iterator: INCOMPLETE
-	@Override
-	public Iterator<String> iterator() {	
+	public Iterator<String> iterator() {
 		return null;
 	}
-	//ToString: INCOMPLETE
-	@Override
-	public String toString() {
-		String din = "";
-		while(data != null) {
-			din = din + data;
-			data = next;
-		}
-		System.out.println("It's trying to work but failing");
-		return din;
-	}
-	//ToArray: INCOMPLETE
+
+	// ToArray: INCOMPLETE
 	@Override
 	public Object[] toArray() {
 		return null;
 	}
-	//???
+
+	// ???
 	@Override
-	public <T> T[] toArray(T[] a) {	
+	public <T> T[] toArray(T[] a) {
 		return null;
 	}
-	//Add: INCOMPLETE
+
+	// Add: INCOMPLETE
 	@Override
 	public boolean add(String e) {
-		
 		return false;
 	}
-	//Remove: INCOMPLETE
+
+	// Remove: INCOMPLETE
 	@Override
 	public boolean remove(Object o) {
 		Node s = start;
-		while(s.getData() != o && s.getData() != null) {
-			//check reference
+		while (s != null) {
+			if (s.getNext() == o) {
+				// Next is deleted, so skip
+				Node b = s;
+				b = s.getNext();
+				s.setNext(b.getNext());
+				return true;
+			}
 			s = s.getNext();
 		}
-		if(s.getData() == null) {
-			//Test failed
-			return false;
-		}
-		else {
-			//Test succeeded
-			return true;
-		}
+		return false;
 	}
-	//ContainsAll: INCOMPLETE
+
+	// ContainsAll: INCOMPLETE
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		return false;
 	}
-	//AddAll: INCOMPLETE
+
+	// AddAll: INCOMPLETE
 	@Override
 	public boolean addAll(Collection<? extends String> c) {
 		return false;
 	}
-	//RemoveAll: INCOMPLETE
+
+	// RemoveAll: INCOMPLETE
 	@Override
 	public boolean removeAll(Collection<?> c) {
 		return false;
 	}
-	//RetainAll: INCOMPLETE
+
+	// RetainAll: INCOMPLETE
 	@Override
-	public boolean retainAll(Collection<?> c) {	
+	public boolean retainAll(Collection<?> c) {
 		return false;
 	}
-	//Clear: INCOMPLETE
+
+	// Clear: INCOMPLETE
 	@Override
-	public void clear() {	
-		
+	public void clear() {
+
 	}
-	//IsEmpty: INCOMPLETE
+
+	// AddFirst: INCOMPLETE
 	@Override
-	public boolean isEmpty() {	
-		return false;
+	public void addFirst(String data) {
+
 	}
-	//Size: INCOMPLETE
+
+	// Remove: INCOMPLETE
 	@Override
-	public int size() {	
-		Node s = start;
-		int i = 0;
-		while(s.getData() != null) {
-			//check reference
-			s = s.getNext();
-			i++;
-		}
-		return i;
-	}
-	//AddFirst: INCOMPLETE
-	@Override
-	public void addFirst(String data) {	
-		
-	}
-	//AddLast: INCOMPLETE
-	@Override
-	public void addLast(String data) {	
-		Node s = start;
-		while(s.getNext() != null) {
-			//check reference
-			s = s.getNext();
-		}
-		//So now getData will be ok
-		s.setData(data);
-	}
-	//Add: INCOMPLETE
-	@Override
-	public void add(String data, int index) throws IndexOutOfBoundsException {	
-	}
-	//Remove: INCOMPLETE
-	@Override
-	public String remove(int index) throws IndexOutOfBoundsException {	
+	public String remove(int index) throws IndexOutOfBoundsException {
 		return null;
 	}
 
+	/**
+	 * You are entering the land of completed methods
+	 */
+
+	// Add: WORKS
+	@Override
+	public void add(String data, int index) throws IndexOutOfBoundsException {
+		// For loop to go through up to index
+		// Set next for previous to data
+		// Set data next to next
+		Node s = start;
+		for (int i = 0; i < index - 1; i++) {
+			s = start.getNext();
+		}
+		// Now at the one before where we add
+		Node savedToMove = s.getNext();
+		Node d = new Node();
+		d.setData(data);
+		s.setNext(d);
+		d.setNext(savedToMove);
+	}
+
+	// AddLast: WORKS
+	@Override
+	public void addLast(String data) {
+		Node s = start;
+		Node n = new Node();
+		n.setData(data);
+		if (start == null) {
+			start = new Node();
+			start.setData(data);
+		} else {
+			while (s.getNext() != null) {
+				// check reference
+				s = s.getNext();
+			}
+			// So now getData will be ok
+			s.setNext(n);
+		}
+	}
+
+	// Size: WORKS
+	@Override
+	public int size() {
+		System.out.println("testing size");
+		if (start == null) {
+			System.out.println("Start is null");
+			return 0;
+		} else {
+			Node s = start;
+			System.out.println("Start exists");
+			int i = 0;
+			while (s != null) {
+				// check reference
+				s = s.getNext();
+				i++;
+			}
+			return i;
+		}
+	}
+
+	// IsEmpty: WORKS
+	@Override
+	public boolean isEmpty() {
+		Node s = start;
+		// See if it's equal to null
+		if (s == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// ToString: WORKS
+	@Override
+	public String toString() {
+		String din = "";
+		Node s = start;
+		while (s != null) {
+			if (s.getNext() != null) {
+				din = din + (String) s.getData() + " ";
+			} else {
+				din = din + (String) s.getData();
+			}
+			s = s.getNext();
+		}
+		System.out.println("It's trying to work but failing");
+		return din;
+	}
+
+	@Override
+	// Contains: WORKS
+	public boolean contains(Object o) {
+		Node s = start;
+		while (s != null) {
+			if (s.getData() == o) {
+				return true;
+			}
+			s = s.getNext();
+		}
+		return false;
+	}
 }
