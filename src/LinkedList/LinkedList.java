@@ -31,23 +31,6 @@ public class LinkedList implements LinkedListInterface {
 		return false;
 	}
 
-	// Remove: INCOMPLETE
-	@Override
-	public boolean remove(Object o) {
-		Node s = start;
-		while (s != null) {
-			if (s.getNext() == o) {
-				// Next is deleted, so skip
-				Node b = s;
-				b = s.getNext();
-				s.setNext(b.getNext());
-				return true;
-			}
-			s = s.getNext();
-		}
-		return false;
-	}
-
 	// ContainsAll: INCOMPLETE
 	@Override
 	public boolean containsAll(Collection<?> c) {
@@ -91,9 +74,29 @@ public class LinkedList implements LinkedListInterface {
 	}
 
 	/**
+	 * THESE METHODS ARE COMPLETED DO NOT SCREW THEM UP YOU WILL REGRET IT LATER SO
+	 * DONT SCREW THEM UP
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	/**
 	 * You are entering the land of completed methods
 	 */
-
+	/**
+	 * THESE METHODS ARE COMPLETED DO NOT SCREW THEM UP YOU WILL REGRET IT LATER SO
+	 * DONT SCREW THEM UP
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	// Add: WORKS
 	@Override
 	public void add(String data, int index) throws IndexOutOfBoundsException {
@@ -186,6 +189,23 @@ public class LinkedList implements LinkedListInterface {
 		Node s = start;
 		while (s != null) {
 			if (s.getData() == o) {
+				return true;
+			}
+			s = s.getNext();
+		}
+		return false;
+	}
+
+	// Remove: WORKS
+	@Override
+	public boolean remove(Object o) {
+		Node s = start;
+		while (s != null) {
+			if (s.getNext() == o) {
+				// Next is deleted, so skip
+				Node b = s;
+				b = s.getNext();
+				s.setNext(b.getNext());
 				return true;
 			}
 			s = s.getNext();
