@@ -51,8 +51,8 @@ public interface LinkedListInterface extends Collection<String> {
 
 	/**
 	 * Removes the element at the specified position in this list. Shifts any
-	 * subsequent elements to the left (subtracts one from their indices).
-	 * Returns the element that was removed from the list.
+	 * subsequent elements to the left (subtracts one from their indices). Returns
+	 * the element that was removed from the list.
 	 *
 	 * @param index
 	 *            the index of the element to be removed
@@ -67,5 +67,7 @@ public interface LinkedListInterface extends Collection<String> {
 	 * @return a string representation of the list
 	 */
 	public String toString();
+
+	public Object get(int i);
 
 }

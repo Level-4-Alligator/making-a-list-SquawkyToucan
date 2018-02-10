@@ -25,12 +25,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-	// Add: INCOMPLETE
-	@Override
-	public boolean add(String e) {
-		return false;
-	}
-
 	// ContainsAll: INCOMPLETE
 	@Override
 	public boolean containsAll(Collection<?> c) {
@@ -53,18 +47,6 @@ public class LinkedList implements LinkedListInterface {
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		return false;
-	}
-
-	// Clear: INCOMPLETE
-	@Override
-	public void clear() {
-
-	}
-
-	// AddFirst: INCOMPLETE
-	@Override
-	public void addFirst(String data) {
-
 	}
 
 	// Remove: INCOMPLETE
@@ -97,6 +79,43 @@ public class LinkedList implements LinkedListInterface {
 	 * 
 	 * 
 	 */
+	// Clear: WORKS
+	@Override
+	public void clear() {
+		start = null;
+	}
+
+	// Get: WORKS
+	public Object get(int index) {
+		Node n = start;
+		for (int i = 0; i < index; i++) {
+			n = n.getNext();
+		}
+		return n.getData();
+	}
+
+	// Remove: WORKS
+	@Override
+	public boolean remove(Object o) {
+		Node s = start;
+		Node f = new Node();
+		while (s != null) {
+			if (s.getNext() != null) {
+				f = s.getNext();
+			}
+			if (f.getData() == o) {
+				System.out.println("it found the object");
+				// Next is deleted, so skip
+				Node b = s;
+				b = s.getNext();
+				s.setNext(b.getNext());
+				return true;
+			}
+			s = s.getNext();
+		}
+		return false;
+	}
+
 	// Add: WORKS
 	@Override
 	public void add(String data, int index) throws IndexOutOfBoundsException {
@@ -113,6 +132,15 @@ public class LinkedList implements LinkedListInterface {
 		d.setData(data);
 		s.setNext(d);
 		d.setNext(savedToMove);
+	}
+
+	// AddFirst: WORKS
+	@Override
+	public void addFirst(String data) {
+		Node neue = new Node();
+		neue.setData(data);
+		neue.setNext(start);
+		start = neue;
 	}
 
 	// AddLast: WORKS
@@ -179,7 +207,6 @@ public class LinkedList implements LinkedListInterface {
 			}
 			s = s.getNext();
 		}
-		System.out.println("It's trying to work but failing");
 		return din;
 	}
 
@@ -196,20 +223,23 @@ public class LinkedList implements LinkedListInterface {
 		return false;
 	}
 
-	// Remove: WORKS
 	@Override
-	public boolean remove(Object o) {
+	public boolean add(String e) {
+		// Just does addLast
 		Node s = start;
-		while (s != null) {
-			if (s.getNext() == o) {
-				// Next is deleted, so skip
-				Node b = s;
-				b = s.getNext();
-				s.setNext(b.getNext());
-				return true;
+		Node n = new Node();
+		n.setData(e);
+		if (start == null) {
+			start = new Node();
+			start.setData(e);
+		} else {
+			while (s.getNext() != null) {
+				// check reference
+				s = s.getNext();
 			}
-			s = s.getNext();
+			// So now getData will be ok
+			s.setNext(n);
 		}
-		return false;
+		return true;
 	}
 }

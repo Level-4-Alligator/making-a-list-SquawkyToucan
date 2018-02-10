@@ -92,7 +92,33 @@ public class LinkedListTest {
 		e.remove("LIUKIN Anastasia");
 		e.remove("PAVLOVA Anna");
 		e.remove("chinese hope for medaling in floor final");
+		System.out.println(e.toString());
 	}
+
+	@Test
+	public void testClear() {
+		LinkedListInterface e = new LinkedList();
+		e.addLast("niriri");
+		e.addLast("a niriri");
+		e.addLast("tongil mujigae");
+		System.out.println(e.toString());
+		e.clear();
+		System.out.println(e.toString());
+	}
+
 	// Add more tests ...
+	@Test
+	public void testAddFirst() {
+		LinkedListInterface e = new LinkedList();
+		e.addLast("JOHNSON Shawn");
+		e.addLast("LIUKIN Anastasia");
+		e.addLast("JIANG Yuyuan");
+		e.addFirst("IZBASA Sandra Raluca");
+		assertEquals(e.get(0), "IZBASA Sandra Raluca");
+		assertEquals(e.get(1), "JOHNSON Shawn");
+		e.addFirst("RAISMAN Alexandra");
+		assertEquals(e.get(0), "RAISMAN Alexandra");
+		assertEquals(e.get(2), "JOHNSON Shawn");
+	}
 
 }
