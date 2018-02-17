@@ -165,4 +165,21 @@ public class LinkedListTest {
 		assertFalse(e.contains("feel"));
 		System.out.println("The list: " + e.toString());
 	}
+	
+	@Test
+	public void retainAllTest() {
+		System.out.println("Starting up the retain all test");
+		LinkedListInterface e = new LinkedList();
+		Collection<String> keep = new ArrayList<String>();
+		keep.add("RAISMAN Alexandra");
+		keep.add("PONOR Catalina");
+		keep.add("FERRARI Vanessa");
+		e.addAll(keep);
+		e.addLast("MUSTAFINA Aliya");
+		System.out.println(e.toString());
+		e.retainAll(keep);
+		System.out.println(e.toString());
+		assertFalse(e.contains("MUSTAFINA Aliya"));
+		assertTrue(e.containsAll(keep));
+	}
 }

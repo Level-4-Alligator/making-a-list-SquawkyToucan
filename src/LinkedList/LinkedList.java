@@ -19,14 +19,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-
-
-	// RetainAll: INCOMPLETE
-	@Override
-	public boolean retainAll(Collection<?> c) {
-		return false;
-	}
-
 	// Remove: INCOMPLETE
 	@Override
 	public String remove(int index) throws IndexOutOfBoundsException {
@@ -103,6 +95,20 @@ public class LinkedList implements LinkedListInterface {
 			s = s.getNext();
 		}
 		return false;
+	}
+
+	// RetainAll: WORKS
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		//Removes all elements NOT in the collection
+		for(int i = 0; i < size(); i++) {
+			System.out.println("Found object " + get(i));
+			if(!c.contains(get(i))) {
+				System.out.println("problem is removal");
+				remove(get(i));
+			}
+		}
+		return true;
 	}
 
 	// ContainsAll: WORKS
