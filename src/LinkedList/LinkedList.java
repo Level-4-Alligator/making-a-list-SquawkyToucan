@@ -13,10 +13,14 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-	// ToArray: INCOMPLETE
+	// ToArray: TESTING
 	@Override
 	public Object[] toArray() {
-		return null;
+		Object[] j = new Object[size()];
+		for(int i = 0; i < j.length; i++) {
+			j[i] = get(i);
+		}
+		return j;
 	}
 
 	// ???

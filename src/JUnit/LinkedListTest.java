@@ -120,5 +120,17 @@ public class LinkedListTest {
 		assertEquals(e.get(0), "RAISMAN Alexandra");
 		assertEquals(e.get(2), "JOHNSON Shawn");
 	}
+	
+	@Test
+	public void toArrayTest() {
+		System.out.println("Starting array test");
+		LinkedListInterface y = new LinkedList();
+		y.addLast("github");
+		y.addLast("eclipse");
+		y.addLast("cycling is dangerous because people dont know how to drive");
+		Object[] z = y.toArray();
+		System.out.println(z.toString());
+		assertEquals(3, z.length);
+		}
 
 }
