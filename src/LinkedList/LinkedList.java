@@ -19,11 +19,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-	// Remove: INCOMPLETE
-	@Override
-	public String remove(int index) throws IndexOutOfBoundsException {
-		return null;
-	}
 
 	/**
 	 * THESE METHODS ARE COMPLETED DO NOT SCREW THEM UP YOU WILL REGRET IT LATER SO
@@ -97,6 +92,14 @@ public class LinkedList implements LinkedListInterface {
 		return false;
 	}
 
+	// Remove: WORKS (kind of, use the right one)
+	@Override
+	public String remove(int index) throws IndexOutOfBoundsException {
+		System.out.println(get(index));
+		remove(get(index));
+		return null;
+	}
+	
 	// RetainAll: WORKS
 	@Override
 	public boolean retainAll(Collection<?> c) {

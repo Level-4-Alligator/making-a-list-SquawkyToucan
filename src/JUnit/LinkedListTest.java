@@ -182,4 +182,16 @@ public class LinkedListTest {
 		assertFalse(e.contains("MUSTAFINA Aliya"));
 		assertTrue(e.containsAll(keep));
 	}
+	
+	@Test
+	public void removeIndexTest() {
+		LinkedListInterface e = new LinkedList();
+		e.addLast("h");
+		e.addLast("e");
+		e.addLast("l");
+		e.addLast("l");
+		e.addLast("o");
+		e.remove(3);
+		assertEquals(e.toString(), "h e l o");
+	}
 }
