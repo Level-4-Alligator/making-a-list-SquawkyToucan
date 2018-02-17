@@ -95,7 +95,6 @@ public class LinkedListTest {
 		e.remove("LIUKIN Anastasia");
 		e.remove("PAVLOVA Anna");
 		e.remove("chinese hope for medaling in floor final");
-		System.out.println(e.toString());
 	}
 
 	@Test
@@ -104,9 +103,7 @@ public class LinkedListTest {
 		e.addLast("niriri");
 		e.addLast("a niriri");
 		e.addLast("tongil mujigae");
-		System.out.println(e.toString());
 		e.clear();
-		System.out.println(e.toString());
 	}
 
 	// Add more tests ...
@@ -126,13 +123,11 @@ public class LinkedListTest {
 	
 	@Test
 	public void toArrayTest() {
-		System.out.println("Starting array test");
 		LinkedListInterface y = new LinkedList();
 		y.addLast("github");
 		y.addLast("eclipse");
 		y.addLast("cycling is dangerous because people dont know how to drive");
 		Object[] z = y.toArray();
-		System.out.println(z.toString());
 		assertEquals(3, z.length);
 		assertEquals(z[1], "eclipse");
 		assertEquals(z[2], "cycling is dangerous because people dont know how to drive");
@@ -140,7 +135,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void containsAllAndAddAllAndRemoveAllTest() {
-		System.out.println("Starting containsAll test");
 		LinkedListInterface e = new LinkedList();
 		Collection<String> cancerousItems = new ArrayList<String>();
 		cancerousItems.add("I");
@@ -163,22 +157,17 @@ public class LinkedListTest {
 		assertTrue(e.containsAll(cancerousItems));
 		e.removeAll(cancerousItems);
 		assertFalse(e.contains("feel"));
-		System.out.println("The list: " + e.toString());
 	}
 	
 	@Test
 	public void retainAllTest() {
-		System.out.println("Starting up the retain all test");
 		LinkedListInterface e = new LinkedList();
 		Collection<String> keep = new ArrayList<String>();
 		keep.add("RAISMAN Alexandra");
 		keep.add("PONOR Catalina");
 		keep.add("FERRARI Vanessa");
 		e.addAll(keep);
-		e.addLast("MUSTAFINA Aliya");
-		System.out.println(e.toString());
 		e.retainAll(keep);
-		System.out.println(e.toString());
 		assertFalse(e.contains("MUSTAFINA Aliya"));
 		assertTrue(e.containsAll(keep));
 	}
