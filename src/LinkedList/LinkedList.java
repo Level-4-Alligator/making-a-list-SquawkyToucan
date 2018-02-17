@@ -20,16 +20,6 @@ public class LinkedList implements LinkedListInterface {
 	}
 
 
-	// RemoveAll: TESTING
-	@Override
-	public boolean removeAll(Collection<?> c) {
-		Object[] sanity = c.toArray();
-		for(int i = 0; i < c.size(); i++) {
-			Object temp = sanity[i];
-			remove(temp);
-		}
-		return true;
-	}
 
 	// RetainAll: INCOMPLETE
 	@Override
@@ -73,6 +63,17 @@ public class LinkedList implements LinkedListInterface {
 		start = null;
 	}
 
+	// RemoveAll: WORKS
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		Object[] sanity = c.toArray();
+		for(int i = 0; i < c.size(); i++) {
+			Object temp = sanity[i];
+			remove(temp);
+		}
+		return true;
+	}
+	
 	// Get: WORKS
 	public Object get(int index) {
 		Node n = start;
