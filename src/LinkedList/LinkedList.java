@@ -13,15 +13,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-	// ToArray: TESTING
-	@Override
-	public Object[] toArray() {
-		Object[] j = new Object[size()];
-		for(int i = 0; i < j.length; i++) {
-			j[i] = get(i);
-		}
-		return j;
-	}
 
 	// ???
 	@Override
@@ -29,11 +20,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-	// ContainsAll: INCOMPLETE
-	@Override
-	public boolean containsAll(Collection<?> c) {
-		return false;
-	}
 
 	// AddAll: INCOMPLETE
 	@Override
@@ -120,6 +106,22 @@ public class LinkedList implements LinkedListInterface {
 		return false;
 	}
 
+	// ContainsAll: WORKS
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		System.out.println("This method seems unnecessary because adding a collection is a stupid idea that would not be taken up even by the dumbest of heart");
+		System.out.println("Even more, who would check that somehting contained multiple things using a COLLECTION?");
+		//Loop through items in collection, run contains() on each. If it fails the entire test fails bye
+		Object[] sanity = c.toArray();
+		for(int i = 0; i < c.size(); i++) {
+			String temp = sanity[i].toString();
+			if(!contains(temp)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	// Add: WORKS
 	@Override
 	public void add(String data, int index) throws IndexOutOfBoundsException {
@@ -164,6 +166,16 @@ public class LinkedList implements LinkedListInterface {
 			// So now getData will be ok
 			s.setNext(n);
 		}
+	}
+	
+	// ToArray: WORKS
+	@Override
+	public Object[] toArray() {
+		Object[] j = new Object[size()];
+		for(int i = 0; i < j.length; i++) {
+			j[i] = get(i);
+		}
+		return j;
 	}
 
 	// Size: WORKS

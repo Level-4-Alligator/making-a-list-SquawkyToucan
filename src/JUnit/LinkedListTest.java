@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.junit.Test;
 
 import LinkedList.LinkedList;
@@ -131,6 +134,27 @@ public class LinkedListTest {
 		Object[] z = y.toArray();
 		System.out.println(z.toString());
 		assertEquals(3, z.length);
-		}
-
+		assertEquals(z[1], "eclipse");
+		assertEquals(z[2], "cycling is dangerous because people dont know how to drive");
+	}
+	
+	@Test
+	public void containsAllTest() {
+		System.out.println("Starting containsAll test");
+		LinkedListInterface e = new LinkedList();
+		Collection<String> cancerousItems = new ArrayList<String>();
+		cancerousItems.add("I");
+		cancerousItems.add("do not");
+		cancerousItems.add("feel");
+		cancerousItems.add("this is");
+		cancerousItems.add("necessary");
+		e.addLast("I");
+		e.addLast("do not");
+		e.addLast("feel");
+		e.addLast("this is");
+		e.addLast("necessary");
+		assertTrue(e.containsAll(cancerousItems));
+		e.remove("feel");
+		assertFalse(e.containsAll(cancerousItems));
+	}
 }
