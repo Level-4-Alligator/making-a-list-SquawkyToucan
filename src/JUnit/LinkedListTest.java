@@ -139,7 +139,7 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void containsAllTest() {
+	public void containsAllAndAddAllAndRemoveAllTest() {
 		System.out.println("Starting containsAll test");
 		LinkedListInterface e = new LinkedList();
 		Collection<String> cancerousItems = new ArrayList<String>();
@@ -156,5 +156,13 @@ public class LinkedListTest {
 		assertTrue(e.containsAll(cancerousItems));
 		e.remove("feel");
 		assertFalse(e.containsAll(cancerousItems));
+		e.clear();
+		assertFalse(e.contains("I"));
+		assertFalse(e.contains("this is"));
+		e.addAll(cancerousItems);
+		assertTrue(e.containsAll(cancerousItems));
+		e.removeAll(cancerousItems);
+		assertFalse(e.contains("feel"));
+		System.out.println("The list: " + e.toString());
 	}
 }

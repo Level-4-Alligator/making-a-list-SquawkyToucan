@@ -13,7 +13,6 @@ public class LinkedList implements LinkedListInterface {
 		return null;
 	}
 
-
 	// ???
 	@Override
 	public <T> T[] toArray(T[] a) {
@@ -21,16 +20,15 @@ public class LinkedList implements LinkedListInterface {
 	}
 
 
-	// AddAll: INCOMPLETE
-	@Override
-	public boolean addAll(Collection<? extends String> c) {
-		return false;
-	}
-
-	// RemoveAll: INCOMPLETE
+	// RemoveAll: TESTING
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		return false;
+		Object[] sanity = c.toArray();
+		for(int i = 0; i < c.size(); i++) {
+			Object temp = sanity[i];
+			remove(temp);
+		}
+		return true;
 	}
 
 	// RetainAll: INCOMPLETE
@@ -138,6 +136,17 @@ public class LinkedList implements LinkedListInterface {
 		d.setData(data);
 		s.setNext(d);
 		d.setNext(savedToMove);
+	}
+
+	// AddAll: WORKS
+	@Override
+	public boolean addAll(Collection<? extends String> c) {
+		Object[] sanity = c.toArray();
+		for(int i = 0; i < c.size(); i++) {
+			String temp = sanity[i].toString();
+			addLast(temp);
+		}
+		return true;
 	}
 
 	// AddFirst: WORKS
