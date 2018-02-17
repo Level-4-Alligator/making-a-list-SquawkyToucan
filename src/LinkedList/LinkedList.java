@@ -1,5 +1,6 @@
 package LinkedList;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -10,6 +11,7 @@ public class LinkedList implements LinkedListInterface {
 	// Iterator: INCOMPLETE
 	@Override
 	public Iterator<String> iterator() {
+		System.out.println("why did you call this method");
 		return null;
 	}
 
@@ -80,7 +82,6 @@ public class LinkedList implements LinkedListInterface {
 				f = s.getNext();
 			}
 			if (f.getData() == o) {
-				System.out.println("it found the object");
 				// Next is deleted, so skip
 				Node b = s;
 				b = s.getNext();
@@ -95,7 +96,6 @@ public class LinkedList implements LinkedListInterface {
 	// Remove: WORKS (kind of, use the right one)
 	@Override
 	public String remove(int index) throws IndexOutOfBoundsException {
-		System.out.println(get(index));
 		remove(get(index));
 		return null;
 	}
@@ -105,9 +105,7 @@ public class LinkedList implements LinkedListInterface {
 	public boolean retainAll(Collection<?> c) {
 		//Removes all elements NOT in the collection
 		for(int i = 0; i < size(); i++) {
-			System.out.println("Found object " + get(i));
 			if(!c.contains(get(i))) {
-				System.out.println("problem is removal");
 				remove(get(i));
 			}
 		}
@@ -117,8 +115,6 @@ public class LinkedList implements LinkedListInterface {
 	// ContainsAll: WORKS
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		System.out.println("This method seems unnecessary because adding a collection is a stupid idea that would not be taken up even by the dumbest of heart");
-		System.out.println("Even more, who would check that somehting contained multiple things using a COLLECTION?");
 		//Loop through items in collection, run contains() on each. If it fails the entire test fails bye
 		Object[] sanity = c.toArray();
 		for(int i = 0; i < c.size(); i++) {
@@ -200,13 +196,10 @@ public class LinkedList implements LinkedListInterface {
 	// Size: WORKS
 	@Override
 	public int size() {
-		System.out.println("testing size");
 		if (start == null) {
-			System.out.println("Start is null");
 			return 0;
 		} else {
 			Node s = start;
-			System.out.println("Start exists");
 			int i = 0;
 			while (s != null) {
 				// check reference
