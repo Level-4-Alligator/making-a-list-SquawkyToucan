@@ -11,8 +11,27 @@ public class LinkedList implements LinkedListInterface {
 	// Iterator: INCOMPLETE
 	@Override
 	public Iterator<String> iterator() {
+		/*
+		 * For each loop
+		 */
 		System.out.println("why did you call this method");
-		return null;
+		return new Iterator<String>() {
+
+			@Override
+			public boolean hasNext() {
+				// TODO Auto-generated method stub
+				if(next.getData() != null) {
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public String next() {
+				// TODO Auto-generated method stub
+				return next.getData().toString();
+			}
+		};
 	}
 
 	// ???

@@ -183,4 +183,5 @@ public class LinkedListTest {
 		e.remove(3);
 		assertEquals(e.toString(), "h e l o");
 	}
+	
 }
